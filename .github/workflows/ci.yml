@@ -36,5 +36,32 @@ jobs:
           VERSION: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          curl -fsS "https://proxy.golang.org/${MODULE_PATH}/@v/${VERSION}.info" >/dev/null
-          curl -fsS "https://pkg.go.dev/${MODULE_PATH}@${VERSION}" >/dev/null
+
+          proxy_url="https://proxy.golang.org/${MODULE_PATH}/@v/${VERSION}.info"
+          pkg_url="https://pkg.go.dev/${MODULE_PATH}@${VERSION}"
+
+          echo "Triggering Go proxy fetch: ${proxy_url}"
+          for attempt in {1..5}; do
+            if curl -fsS "${proxy_url}" >/dev/null; then
+              echo "Go proxy acknowledged version on attempt ${attempt}."
+              break
+            fi
+            echo "Go proxy not ready (attempt ${attempt}); waiting 15s..."
+            sleep 15
+          done
+
+          echo "Hinting pkg.go.dev: ${pkg_url}"
+          pkg_success=0
+          for attempt in {1..8}; do
+            if curl -fsS "${pkg_url}" >/dev/null; then
+              echo "pkg.go.dev responded on attempt ${attempt}."
+              pkg_success=1
+              break
+            fi
+            echo "pkg.go.dev not ready yet (attempt ${attempt}); waiting 30s..."
+            sleep 30
+          done
+
+          if [ ${pkg_success} -eq 0 ]; then
+            echo "pkg.go.dev still returning 404 after retries; continuing without failing."
+          fi
