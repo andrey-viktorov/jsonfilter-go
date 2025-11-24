@@ -3,8 +3,8 @@ package logic
 import (
 	"testing"
 
-	jsonfilter "github.com/youruser/json-filter"
-	"github.com/youruser/json-filter/operator/comparison"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
+	"github.com/andrey-viktorov/jsonfilter-go/operator/comparison"
 )
 
 func BenchmarkAndOperatorEvaluate(b *testing.B) {

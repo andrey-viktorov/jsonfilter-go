@@ -49,3 +49,33 @@ jsonFilter:
 		t.Fatalf("expected match for YAML parsed operator: %#v", res)
 	}
 }
+
+func TestParserFromMap(t *testing.T) {
+	parser := DefaultParser()
+	root := map[string]interface{}{
+		"and": []interface{}{
+			map[string]interface{}{
+				"eq": map[string]interface{}{
+					"field": "foo",
+					"value": "bar",
+				},
+			},
+			map[string]interface{}{
+				"rx": map[string]interface{}{
+					"field": "baz",
+					"value": "^qu",
+				},
+			},
+		},
+	}
+
+	op, err := parser.FromMap(root)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	res := op.Evaluate([]byte(`{"foo":"bar","baz":"quasar"}`))
+	if !res.Match {
+		t.Fatalf("expected map-parsed operator to match: %#v", res)
+	}
+}

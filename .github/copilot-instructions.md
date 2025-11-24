@@ -145,7 +145,7 @@ This library provides the filtering core. The mocking server should:
 ## Go-Specific Conventions
 
 - Use Go modules (`go.mod`)
-- Package structure: `github.com/youruser/json-filter`
+- Package structure: `github.com/andrey-viktorov/jsonfilter-go`
 - Dependencies: `github.com/tidwall/gjson`, `github.com/valyala/fasthttp`, `gopkg.in/yaml.v3`
 - Exported types start with capital letters
 - Use interfaces for polymorphism (Operator, OperatorEnum)

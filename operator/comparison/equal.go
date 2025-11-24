@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"reflect"
 
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
 	"github.com/tidwall/gjson"
-	jsonfilter "github.com/youruser/json-filter"
 )
 
 // EqualOperator compares a JSON path value for equality against an expected literal.

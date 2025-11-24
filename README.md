@@ -30,8 +30,8 @@ Getting Started
 ---------------
 
 ```bash
-git clone https://github.com/youruser/json-filter
-cd json-filter
+git clone https://github.com/andrey-viktorov/jsonfilter-go
+cd jsonfilter-go
 go test ./...
 ```
 
@@ -44,8 +44,8 @@ package main
 import (
 	"fmt"
 
-	jsonfilter "github.com/youruser/json-filter"
-	"github.com/youruser/json-filter/serde"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
+	"github.com/andrey-viktorov/jsonfilter-go/serde"
 )
 
 func main() {

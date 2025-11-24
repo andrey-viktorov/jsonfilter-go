@@ -3,7 +3,7 @@ package logic
 import (
 	"fmt"
 
-	jsonfilter "github.com/youruser/json-filter"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
 )
 
 // Operator represents a logical aggregation of child operators (and/or).

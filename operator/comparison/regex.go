@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"regexp"
 
-	jsonfilter "github.com/youruser/json-filter"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
 )
 
 // RegexOperator evaluates the value of a JSON path against a compiled regular expression.

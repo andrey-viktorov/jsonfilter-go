@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strings"
 
-	jsonfilter "github.com/youruser/json-filter"
-	"github.com/youruser/json-filter/operator/comparison"
-	"github.com/youruser/json-filter/operator/logic"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
+	"github.com/andrey-viktorov/jsonfilter-go/operator/comparison"
+	"github.com/andrey-viktorov/jsonfilter-go/operator/logic"
 	"gopkg.in/yaml.v3"
 )
 
@@ -47,6 +47,11 @@ func (p Parser) FromYAML(payload []byte) (jsonfilter.Operator, error) {
 	if err := yaml.Unmarshal(payload, &root); err != nil {
 		return nil, fmt.Errorf("parse yaml: %w", err)
 	}
+	return p.parseRoot(root)
+}
+
+// FromMap evaluates an already unmarshaled map against the parser rules.
+func (p Parser) FromMap(root map[string]interface{}) (jsonfilter.Operator, error) {
 	return p.parseRoot(root)
 }
 

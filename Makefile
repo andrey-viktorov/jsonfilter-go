@@ -1,4 +1,4 @@
-MODULE=github.com/youruser/json-filter
+MODULE=github.com/andrey-viktorov/jsonfilter-go
 PKGS=./...
 
 .PHONY: fmt lint test bench bench-logic bench-comparison tidy

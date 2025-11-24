@@ -3,7 +3,7 @@ package comparison
 import (
 	"fmt"
 
-	jsonfilter "github.com/youruser/json-filter"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
 )
 
 // Instantiate creates a comparison operator implementation for the provided type.

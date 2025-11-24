@@ -3,7 +3,7 @@ package logic
 import (
 	"testing"
 
-	jsonfilter "github.com/youruser/json-filter"
+	jsonfilter "github.com/andrey-viktorov/jsonfilter-go"
 )
 
 type stubOperator struct {
