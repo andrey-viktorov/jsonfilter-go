@@ -1,6 +1,9 @@
 JSON-Filter (Go)
 =================
 
+[![pkg.go.dev](https://pkg.go.dev/badge/github.com/andrey-viktorov/jsonfilter-go.svg)](https://pkg.go.dev/github.com/andrey-viktorov/jsonfilter-go)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 High-performance Go port of [telekom/JSON-Filter](https://github.com/telekom/JSON-Filter). The library evaluates JSON payloads against declarative filter definitions (JSON or YAML) and returns detailed match results suitable for ultra-fast mocking servers built on `fasthttp`.
 
 Features
@@ -125,4 +128,4 @@ Contributing
 License
 -------
 
-Apache-2.0 (same as the original JSON-Filter project).
+MIT. See [LICENSE](LICENSE) for details.
