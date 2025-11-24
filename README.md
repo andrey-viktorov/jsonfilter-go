@@ -80,12 +80,12 @@ Filters use a single root operator. Each comparison operator requires `field` (J
 ```yaml
 jsonFilter:
   or:
-	- eq:
-		field: $.metadata.status
-		value: ready
-	- rx:
-		field: $.metadata.traceId
-		value: "^trace-[0-9]+$"
+    - eq:
+      field: $.metadata.status
+      value: ready
+    - rx:
+      field: $.metadata.traceId
+      value: "^trace-[0-9]+$"
 ```
 
 Complexity Guard
